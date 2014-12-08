@@ -41,25 +41,10 @@ function load(){
 			then
 				falt "there is a error in the $line of the file[$standard]"
 			else
-				tmp_path=None
-				for var in ${findHomeDir[@]};
-				do
-					 ret=$(echo $var|grep -i ${arr[0]})
-					 if [[ "$ret" != "" ]];
-					 then
-					tmp_path=$var
-							break
-					 fi
-				done
-				echo $tmp_path
-				home_name=${arr[0]}
+				
 				if [[ $arr_Len = 2 ]];
-				then
-				  home_name=${arr[1]}
+					then
 				fi
-				home_name=$(echo $home_name|tr '[:lower:]' '[:upper:]')
-				home_name="${home_name}_HOME"
-				echo $home_name
 			fi
 
 		done < $standard
